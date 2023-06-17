@@ -19,7 +19,18 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Reservation> reservationList=new ArrayList<>();;
+    private List<Reservation> reservationList=new ArrayList<>();
+
+    public User() {
+    }
+
+    public User(int id, String name, String phoneNumber, String password, List<Reservation> reservationList) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.reservationList = reservationList;
+    }
 
 
     public String getName() {

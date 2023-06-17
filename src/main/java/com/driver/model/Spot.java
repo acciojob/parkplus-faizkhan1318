@@ -15,12 +15,23 @@ public class Spot {
     private SpotType spotType;
     private int pricePerHour;
     private boolean occupied;
-
     @ManyToOne
     @JoinColumn
     private ParkingLot parkingLot;
     @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL)
-    private List<Reservation> reservationList=new ArrayList<>();;
+    private List<Reservation> reservationList=new ArrayList<>();
+
+    public Spot() {
+    }
+
+    public Spot(int id, SpotType spotType, int pricePerHour, Boolean occupied, ParkingLot parkingLot, List<Reservation> reservationList) {
+        this.id = id;
+        this.spotType = spotType;
+        this.pricePerHour = pricePerHour;
+        this.occupied = occupied;
+        this.parkingLot = parkingLot;
+        this.reservationList = reservationList;
+    }
 
     public int getPricePerHour() {
         return pricePerHour;
