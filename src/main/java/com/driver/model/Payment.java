@@ -8,12 +8,9 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private boolean paymentCompleted;
-
     @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
-
     @OneToOne
     @JoinColumn
     private Reservation reservation;
